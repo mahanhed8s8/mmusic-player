@@ -124,7 +124,9 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         `)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    music.stopAllSounds()
     music.play(music.createSong(hex`0078000408020305001c000f0a006400f4010a000004000000000000000000000000000000000207002000240002252707001c00020a006400f40164000004000000000000000000000000000000000312000400080001291c002000012934003800012908001c000e050046006603320000040a002d0000006400140001320002010002480000000400012a08000c0001250c001000012410001400012214001800012218001c00012a24002800012428002c0001222c003000012230003400012a38003c0001253c0040000122`), music.PlaybackMode.LoopingInBackground)
+    music.play(music.createSoundEffect(WaveShape.Sawtooth, 2751, 2798, 76, 0, 100, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
     scene.setBackgroundImage(img`
         6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
         6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
@@ -248,4 +250,29 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
         `)
 })
+let Speack = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . 6 . . . . . . . . . . . . 
+    . . . . 6 . . . . . . . . . . . 
+    . . . . . 6 . . . . . . . . . . 
+    . . . . . . 6 . . . . . . . . . 
+    . . . . . . . 6 6 . . . . . . . 
+    . . . . . . . . . 6 6 . . . . . 
+    . . . . . . . . . . . 6 . . . . 
+    . . . . . . . . . . . . 6 . . . 
+    . . . . . . . . . . . . . 6 . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
+Speack.setPosition(142, 101)
+animation.runImageAnimation(
+Speack,
+assets.animation`Speack`,
+100,
+true
+)
 scene.setBackgroundImage(assets.image`instructions`)
